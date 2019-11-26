@@ -7,20 +7,32 @@ from bs4 import BeautifulSoup
 def main():
     lista_en = []
     lista_pt = []
-
+    links_ = []
+    lista_log = []
+    cont = 0
     with open(str(sys.argv[1]+'links.txt')) as file:
         for line in file:
-            print(line)
-            temp_en, temp_pt = pega_letra(line)
-            lista_en += temp_en
-            lista_pt += temp_pt
+            print(cont,") ", line)
+            cont += 1
+            url, temp_en, temp_pt = pega_letra(line)
+            links_ += url.split()
+            if len(temp_en) == len(temp_pt):
+                lista_en += temp_en
+                lista_pt += temp_pt
+                lista_log += str("ok").split()
+            else:
+                lista_log += str("nok").split()
     
-    #converte para zip, depois para lista, e depois em dataframe
-    
+    #faz dicionario, depois dataframe, aí salva no disco
     dicionario = {'en_us':lista_en, 'pt_BR':lista_pt}
     data_set = pd.DataFrame(dicionario)
-    #print(data_set)
     data_set.to_csv(str(sys.argv[1]+'dataset.txt'), sep='\t', mode='w', index=False)
+    print(links_)
+    print(lista_log)
+    dicionario_log = {'link':links_, 'ok?':lista_log}
+    log = pd.DataFrame(dicionario_log)
+    log.to_csv(str(sys.argv[1]+'log.txt'), sep=';', mode='w', index=False)
+    print(lista_log)
 
 def pega_letra(url):
     #print(url)
@@ -60,7 +72,7 @@ def pega_letra(url):
         y = y.replace("</span>",".")
         list_pt.append(y)
 
-    return list_en, list_pt
+    return url, list_en, list_pt
 
 if __name__ == "__main__":
     main()
