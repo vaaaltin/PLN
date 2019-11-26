@@ -27,15 +27,12 @@ def main():
     dicionario = {'en_us':lista_en, 'pt_BR':lista_pt}
     data_set = pd.DataFrame(dicionario)
     data_set.to_csv(str(sys.argv[1]+'dataset.txt'), sep='\t', mode='w', index=False)
-    print(links_)
-    print(lista_log)
     dicionario_log = {'link':links_, 'ok?':lista_log}
     log = pd.DataFrame(dicionario_log)
     log.to_csv(str(sys.argv[1]+'log.txt'), sep=';', mode='w', index=False)
     print(lista_log)
 
 def pega_letra(url):
-    #print(url)
     html = urlopen(url)
     soup = BeautifulSoup(html.read(), 'html.parser')
     list_en = []
@@ -56,8 +53,6 @@ def pega_letra(url):
         y = y.replace("<span>","")
         y = y.replace("</span>",".")
         list_en.append(y)
-
-    #print(list_en)
 
     #pega a letra em portugues
     tit_pt = str(todo_pt.findNext("h3"))
