@@ -16,6 +16,7 @@ def main():
     data_set_artistas = pd.DataFrame(dicionario)
     data_set_artistas.to_csv(str(sys.argv[1]+'/artistas.txt'), sep='\t', mode='w', index=False)
 
+
 def pega_artista(letra):
     print(letra)
     url = 'https://www.letras.mus.br/letra/'+letra+'/'
@@ -27,6 +28,7 @@ def pega_artista(letra):
     for a in todo_en.find_all('a', href=True): 
         if a.text:
             lista_art += ('https://www.letras.mus.br' + str(a['href'])).split()
+            print(lista_art)
     return lista_art
 
 if __name__ == "__main__":
