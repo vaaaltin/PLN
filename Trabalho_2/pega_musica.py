@@ -8,13 +8,17 @@ from bs4 import BeautifulSoup
 def main():
     lista_musicas_trad = []
     i = 0
+    caminho = str(sys.argv[1]+'musicas_trad.txt')
+    print('Caminho: ', caminho)
     with open(str(sys.argv[1]+'artistas.txt')) as file:
+        next(file)
         for line in file:
             lista_musicas_trad += pega_musicas(line)
 
             dicionario = {'links_musicas_trad':lista_musicas_trad}
             data_set_musicas = pd.DataFrame(dicionario)
-            data_set_musicas.to_csv(str(sys.argv[1]+'/musicas_trad.txt'), sep='\t', mode='w', index=False)
+            
+            data_set_musicas.to_csv(caminho, sep='\t', mode='w', index=False)
             i+=1
 
 def pega_musicas(url):
