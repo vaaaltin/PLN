@@ -12,11 +12,9 @@ def main():
     lista_log = []
     cont = 0
     cont2 = 0
-    bar = progressbar.ProgressBar(max_value=50021)
     with open(str(sys.argv[1]+'musicas_trad.txt')) as file:
         next(file)
         for line in file:
-            bar.update(cont)
             print('  ',str(cont)+") ", line)
             cont += 1
             url, temp_en, temp_pt = pega_letra(line)
@@ -78,7 +76,7 @@ def pega_letra(url):
             y = y.replace("</span>",".")
             list_pt.append(y)
     except:
-        print("LETRAS E UMA BOSTA")
+        print(".")
     
     return url, list_en, list_pt
 
