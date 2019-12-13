@@ -17,7 +17,7 @@ def main():
 
             dicionario = {'links_musicas_trad':lista_musicas_trad}
             data_set_musicas = pd.DataFrame(dicionario)
-            
+
             data_set_musicas.to_csv(caminho, sep='\t', mode='w', index=False)
             i+=1
 
@@ -43,11 +43,10 @@ def pega_musicas(url):
                 todo_en_trad = soup2.findAll("a", {"data-tt": "Tradução"})
                 for a_trad in todo_en_trad:
                     link_trad = ('https://www.letras.mus.br' + str(a_trad['href'])).split()
-
                     if '/traducao.html' in link_trad[0]:
                         lista_mus_trad += link_trad
                         print(link_trad)
-            
+    print(lista_mus_trad)   
     return lista_mus_trad
 
 
