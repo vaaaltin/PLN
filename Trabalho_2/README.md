@@ -29,4 +29,4 @@ history = model.fit(trainX, trainY, epochs=50, batch_size=64, validation_data=(t
 
 
 
-[1](https://www.letras.mus.br/) "Letras"
+[1](https://www.letras.mus.br/)"Letras"
