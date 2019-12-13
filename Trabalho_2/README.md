@@ -2,7 +2,7 @@
 
 ## Dataset
 
-	The dataset is a alligned corpus, constructed from all song of the [Letras](https://www.letras.mus.br/)
+ The dataset is a alligned corpus, constructed from all song of the [Letras](https://www.letras.mus.br/). This songs were reached utilizing BeautifulSoup4 library in Python.
 
 python3 pega_artista.py <caminho para salvar>
 python3 pega_musica.py <caminho onde os artistas foram salvos>
