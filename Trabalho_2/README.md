@@ -1,4 +1,8 @@
-Dataset:
+# LSTM approach for english-portuguese translation
+
+## Dataset
+
+	The dataset is a alligned corpus, constructed from all song of the [Letras][1] 
 
 python3 pega_artista.py <caminho para salvar>
 python3 pega_musica.py <caminho onde os artistas foram salvos>
@@ -22,3 +26,7 @@ Modelo:
 filename = 'model1.h5'
 checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=1, save_best_only=True, mode='min')
 history = model.fit(trainX, trainY, epochs=50, batch_size=64, validation_data=(testX, testY), callbacks=[checkpoint], verbose=2)
+
+
+
+[1](https://www.letras.mus.br/) "Letras"
