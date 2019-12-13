@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 def main():
     lista_musicas_trad = []
     i = 0
-    caminho = str(sys.argv[1]+'musicas_trad.txt')
+    caminho = str(sys.argv[1]+'musicas.txt')
     print('Caminho: ', caminho)
     with open(str(sys.argv[1]+'artistas.txt')) as file:
         next(file)
@@ -43,9 +43,11 @@ def pega_musicas(url):
                 todo_en_trad = soup2.findAll("a", {"data-tt": "Tradução"})
                 for a_trad in todo_en_trad:
                     link_trad = ('https://www.letras.mus.br' + str(a_trad['href'])).split()
-                    if '/traducao.html' in link_trad[0]:
-                        lista_mus_trad += link_trad
-                        print(link_trad)
+                    link_mus_trad += link_trad
+                    print(link_trad)
+                    #if '/traducao.html' in link_trad[0]:
+                    #    lista_mus_trad += link_trad
+                    #    print(link_trad)
     print(lista_mus_trad)   
     return lista_mus_trad
 
