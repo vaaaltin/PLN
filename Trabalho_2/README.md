@@ -28,7 +28,13 @@ The dataset used in all models contains 20k sentences, 80/20 train/test split an
 The LSTM with the bests results is as follows:
 
 ### Defined NMT layers
-> ![NMT Layers](https://github.com/vaaaltin/PLN/blob/master/Trabalho_2/model1.png)
+> model = Sequential()\
+> model.add(Embedding(src_vocab, n_units, input_length=src_timesteps, mask_zero=True))\
+> model.add(Dropout(rate=0.7))\
+> model.add(LSTM(n_units))\
+> model.add(RepeatVector(tar_timesteps))\
+> model.add(LSTM(n_units, return_sequences=True))\
+> model.add(TimeDistributed(Dense(tar_vocab, activation='softmax')))
 
 
 ### Algorithm hyper-parameters:
