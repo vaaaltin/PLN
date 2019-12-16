@@ -2,7 +2,7 @@
 
 ## Dataset
 
-The dataset is a alligned corpus, constructed from all song from [Letras](https://www.letras.mus.br/) website.
+The dataset is an alligned corpus, constructed from all song from [Letras](https://www.letras.mus.br/) website.
 
 Patterns were founded in the HTML, so they were reached utilizing BeautifulSoup4 library in Python.
 
@@ -13,14 +13,14 @@ Patterns were founded in the HTML, so they were reached utilizing BeautifulSoup4
 
 The code sequence are as follows:
 
-`python3 pega_artista.py <caminho para salvar>`
+`python3 pega_artista.py <path to save>`
 
-`python3 pega_musica.py <caminho onde os artistas foram salvos>`
+`python3 pega_musica.py <same path as above>`
 
-`python3 pega_letra.py <caminho onde as musicas foram salvas>`
+`python3 pega_letra.py <same path as above>`
 
 
-The dataset used in all models contains 20k setences, 80/20 train/test split and a random state of 12.
+The dataset used in all models contains 20k sentences, 80/20 train/test split and a random state of 12.
 
 
 ## RNN Model
@@ -28,16 +28,10 @@ The dataset used in all models contains 20k setences, 80/20 train/test split and
 The LSTM with the bests results is as follows:
 
 ### Defined NMT layers
-> model = Sequential()\
-> model.add(Embedding(src_vocab, n_units, input_length=src_timesteps, mask_zero=True))\
-> model.add(Dropout(rate=0.7))\
-> model.add(LSTM(n_units))\
-> model.add(RepeatVector(tar_timesteps))\
-> model.add(LSTM(n_units, return_sequences=True))\
-> model.add(TimeDistributed(Dense(tar_vocab, activation='softmax')))
+> ![NMT Layers](https://github.com/vaaaltin/PLN/blob/master/Trabalho_2/model1.png)
 
 
-### Algorithm training model:
+### Algorithm hyper-parameters:
 * 50 epochs
 * Batch size of 64
 * Validation set of 30%
