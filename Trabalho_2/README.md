@@ -34,7 +34,7 @@ The LSTM with the bests results is as follows:
 > model.add(LSTM(n_units))\
 > model.add(RepeatVector(tar_timesteps))\
 > model.add(LSTM(n_units, return_sequences=True))\
-> model.add(TimeDistributed(Dense(tar_vocab, activation='softmax')))\
+> model.add(TimeDistributed(Dense(tar_vocab, activation='softmax')))
 
 
 ### Algorithm training model:
