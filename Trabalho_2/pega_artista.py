@@ -14,6 +14,7 @@ def main():
             lista_artistas.remove(x)
     dicionario = {'links_artistas':lista_artistas}
     data_set_artistas = pd.DataFrame(dicionario)
+    print(len(data_set_artistas))
     data_set_artistas.to_csv(str(sys.argv[1]+'/artistas.txt'), sep='\t', mode='w', index=False)
 
 
