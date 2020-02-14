@@ -4,14 +4,14 @@
 
 The dataset is an alligned corpus, constructed from all song from [Letras](https://www.letras.mus.br/) website.
 
-Patterns were founded in the HTML, so they were reached utilizing BeautifulSoup4 library in Python.
+Patterns were founded in the HTML, so they were reached utilizing [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/) library in Python.
 
 
-1. A total of 936 artists of all languages.
-2. Then to get only the songs of interest, which is, musics with already translated "x" to "portuguese" languages, and, with alligned corpus.
-3. With all this songs a filter has to be made, since this website contains songs from artits from all around the world, this filter used Polyglot library, to identifies which language the musics are.
+1. The full dataset have 936 artists of all languages.
+2. Then to get only the songs of interest, which is, musics with already translated "x" to "portuguese" languages, and, with alligned corpus a filter was made.
+3. Since the website contains songs from artits from all around the world, I used [Polyglot](https://polyglot.readthedocs.io/en/latest/Installation.html) library, to identifies which language the musics are.
 
-The code sequence are as follows:
+The code sequence to get the dataset are as follows:
 
 `python3 pega_artista.py <path to save>`
 
